@@ -5,7 +5,7 @@
 }
 
 .overflow-back {
-    width: 250px;
+    width: auto;
     height: 150px;
     background-color: #00000088;
     opacity: 0;
@@ -21,3 +21,26 @@
     background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
 }
 
+.content{
+    flex: 1 0 auto;
+}
+.details{
+    flex-direction: column;
+}
+.item{
+    margin: 0 auto;
+    padding: 7px;
+}
+.media{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+    display: inline-block;
+}
+.card{
+    display:flex;
+    width: 230px;
+    height: 400px;
+}

@@ -1,41 +1,6 @@
 import React from 'react'
 import "./Gallery.css"
-
-export default class GalleryGrid extends React.Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            cols: ''
-        }
-    }
-
-    render() {
-        let gridColumnStyle = 'repeat('+this.props.cols+', 1fr) '
-
-        let gridContainerWidth = this.props.cols * 250
-        return (
-            <div
-                style={{
-                    display: 'grid'
-                }}
-            >
-                <div
-                    style={{
-                        gridTemplateColumns: gridColumnStyle,
-                        gridTemplateRows: 'repeat(4, 1fr)',
-                        width:  'auto',
-                        float: 'left',
-                    }}
-                >
-                    {/* Provide space to child componets in here */}
-                    {this.props.children}
-                </div>
-            </div>
-        )
-    }
-}
-
+import {Box, Card, CardActionArea, CardContent, Grid, makeStyles, Typography} from "@material-ui/core";
 
 export class GalleryImage extends React.Component {
     constructor(props) {
@@ -60,18 +25,101 @@ export class GalleryImage extends React.Component {
     render() {
         return (
             <div>
-                <div className='image-grid-card' style={{backgroundImage: 'url(' + this.props.src + ')'}}
-                     onClick={this.handleClick}>
-                    <div className='image-grid-card-title'>
-                    </div>
-                    <div className='overflow-back'>
-                    </div>
-                </div>
-                <div className="card-body">
-                    <a href="" className="h3 text-decoration-none">Nazwa</a>
-                    <p className="text-center mb-0">$.00</p>
-                </div>
+                <Grid container columns={{ xs: 4, md: 12 }}>
+                    <Card className="card" variant="outlined" square>
+                    <CardActionArea
+                        href={''}
+                        target="_blank">
+                        <Box
+                            p={1}
+                            style={{
+                                height: 250,
+                                textAlign: 'center'
+                            }}>
+                            <img
+                                src={this.props.src}
+                                className="media"
+                             alt={'ff'}/>
+                        </Box>
+                    <CardContent className="content">
+                        <Typography
+                            variant="body1"
+                            color="textPrimary"
+                            gutterBottom
+                            style={{
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                display: '-webkit-box',
+                                WebkitLineClamp: '2',
+                                WebkitBoxOrient: 'vertical'
+                            }}>
+                            {"item.title"}
+                        </Typography>
+                        <Typography variant="subtitle2" color="textSecondary">
+                            {'item.price.currency'} {'item.price.value'}
+                        </Typography>
+                    </CardContent>
+                    </CardActionArea>
+                    </Card>
+                </Grid>
             </div>
         )
+    }
+}
+export class GalleryView extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            src: null,
+            title: '',
+            fullScreen: false
+        }
+        return (
+            props.items &&
+            props.items.length > 0 &&
+            props.items.map((item) => (
+                <Grid key={this.props.title} className="item" item>
+                    <Card className="card" variant="outlined" square>
+                        <CardActionArea
+                            href={''}
+                            target="_blank">
+                            <Box
+                                p={1}
+                                style={{
+                                    height: 250,
+                                    textAlign: 'center'
+                                }}>
+                                <img
+                                    src={this.props.src}
+                                    className="media"
+                                    alt={item.title}
+                                />
+                            </Box>
+                            <div className="details">
+                                <CardContent className="content">
+                                    <Typography
+                                        variant="body1"
+                                        color="textPrimary"
+                                        gutterBottom
+                                        style={{
+                                            overflow: 'hidden',
+                                            textOverflow: 'ellipsis',
+                                            display: '-webkit-box',
+                                            WebkitLineClamp: '2',
+                                            WebkitBoxOrient: 'vertical'
+                                        }}>
+                                        {item.title}
+                                    </Typography>
+                                    <Typography variant="subtitle2" color="textSecondary">
+                                        {'item.price.currency'} {'item.price.value'}
+                                    </Typography>
+                                </CardContent>
+                            </div>
+                        </CardActionArea>
+                    </Card>
+                </Grid>
+            ))
+        );
     }
 }
