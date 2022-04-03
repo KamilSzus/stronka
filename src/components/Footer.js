@@ -39,7 +39,6 @@ const Footer = () => {
                 backgroundColor="black"
                 fontColor="white"
                 copyright="228867"
-                copyrightColor="null"
             />
         </div>
 

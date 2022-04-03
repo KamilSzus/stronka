@@ -1,0 +1,23 @@
+.image-grid-card {
+    width: auto;
+    height: auto;
+    background-size: cover;
+}
+
+.overflow-back {
+    width: 250px;
+    height: 150px;
+    background-color: #00000088;
+    opacity: 0;
+    transition: .2s;
+}
+
+.image-grid-card:hover .overflow-back {
+    opacity: 100%;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+}
+
