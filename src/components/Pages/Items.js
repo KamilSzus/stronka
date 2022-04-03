@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-slideshow-image/dist/styles.css'
-import GalleryGrid, {GalleryImage} from "../Gallery";
+import GalleryImage from "../Gallery";
 function Items() {
     return(
         <>
