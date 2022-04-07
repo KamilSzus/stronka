@@ -32,10 +32,10 @@ function GalleryImage(props) {
                                 WebkitLineClamp: '2',
                                 WebkitBoxOrient: 'vertical'
                             }}>
-                            {"item.title"}
+                            {object.title}
                         </Typography>
                         <Typography variant="subtitle2" color="textSecondary">
-                            {'item.price.currency'} {'item.price.value'}
+                            {object.Price} zł
                         </Typography>
                     </CardContent>
                 </CardActionArea>
