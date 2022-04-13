@@ -4,6 +4,8 @@ import GalleryImage from "../Gallery";
 import {Grid, TextField} from "@material-ui/core";
 import List from "../Search";
 import Data from "../ListData.json"
+import ReactPaginate from "react-paginate";
+import Paginate from "../Paginate";
     function Items() {
 
         const [inputText, setInputText] = useState("");
@@ -30,6 +32,7 @@ import Data from "../ListData.json"
                         <GalleryImage input={inputText} myArray={Data}/>
                     </Grid>
                 </div>
+                <Paginate/>
             </>
         )
     }

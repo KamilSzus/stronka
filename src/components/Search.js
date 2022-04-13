@@ -1,6 +1,5 @@
 import React from "react";
 import "./Search.css"
-import data from "./ListData.json"
 import {Box, Card, CardActionArea, CardContent, Typography} from "@material-ui/core";
 
 function List(props) {
