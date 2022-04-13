@@ -1,42 +1,42 @@
 [
   {
     "title": "Wampirze Cesarstwo",
-    "Price": 49.99,
+    "price": 49.99,
     "src": "images/WampirzeCesarstwo.jpg"
   },
   {
     "title": "Kroniki Jakuba Wędrowycza",
-    "Price": 29.99,
+    "price": 29.99,
     "src": "images/KronikaJakuba.jpg"
   },
   {
     "title": "Sługa Korony",
-    "Price": 39.99,
+    "price": 39.99,
     "src": "images/Sługa.jpg"
   },
   {
     "title": "Diablo",
-    "Price": 49.99,
+    "price": 49.99,
     "src": "images/Diablo.jpg"
   },
   {
     "title": "Powiesić wybebeszyć i poćwiartować",
-    "Price": 34.00,
+    "price": 34.00,
     "src": "images/PowiesićWybebeszyćIPoćwiartować.jpg"
   },
   {
     "title": "Hobbit",
-    "Price": 49.99,
+    "price": 49.99,
     "src": "images/Hobbit.jpg"
   },
   {
     "title": "Władca Pierścieni",
-    "Price": 79.99,
+    "price": 79.99,
     "src": "images/Władca.jpg"
   },
   {
     "title": "Studnia wstąpienia",
-    "Price": 29.99,
+    "price": 29.99,
     "src": "images/studnia.jpg"
   }
 ]

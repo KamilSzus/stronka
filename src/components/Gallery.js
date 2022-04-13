@@ -1,10 +1,9 @@
 import React from 'react'
 import "./Gallery.css"
-import {Box, Card, CardActionArea, CardContent, Grid, Typography} from "@material-ui/core";
+import {Box, Card, CardActionArea, CardContent, Typography} from "@material-ui/core";
 
 function GalleryImage(props) {
     return (props.myArray.map((object) => (
-
             <Card className="card" variant="outlined">
                 <CardActionArea
                     href={''}
@@ -35,7 +34,7 @@ function GalleryImage(props) {
                             {object.title}
                         </Typography>
                         <Typography variant="subtitle2" color="textSecondary">
-                            {object.Price} zł
+                            {object.price} zł
                         </Typography>
                     </CardContent>
                 </CardActionArea>
