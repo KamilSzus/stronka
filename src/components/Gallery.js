@@ -1,9 +1,21 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import "./Gallery.css"
 import {Box, Card, CardActionArea, CardContent, Typography} from "@material-ui/core";
 
 function GalleryImage(props) {
-    return (props.myArray.map((object) => (
+
+    const[books,setBooks]=useState([])
+
+    useEffect(()=>{
+        fetch("http://localhost:8080/items/getAllBooks")
+            .then(res=>res.json())
+            .then((result)=>{
+                    setBooks(result);
+                }
+            )
+    },[])
+
+    return (books.map((object) => (
             <Card className="card" variant="outlined">
                 <CardActionArea
                     href={''}
@@ -15,7 +27,7 @@ function GalleryImage(props) {
                             textAlign: 'center'
                         }}>
                         <img
-                            src={object.src}
+                            src={object.cover}
                             className="media"
                             alt={'coo'}/>
                     </Box>

@@ -1,9 +1,19 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./Search.css"
 import {Box, Card, CardActionArea, CardContent, Typography} from "@material-ui/core";
 
 function List(props) {
-    const filteredData = props.myArray.filter((el) => {
+    const[books,setBooks]=useState([])
+
+    useEffect(()=>{
+        fetch("http://localhost:8080/items/getAllBooks")
+            .then(res=>res.json())
+            .then((result)=>{
+                    setBooks(result);
+                }
+            )
+    },[])
+    const filteredData = books.filter((el) => {
         if (props.input === '') {
         } else {
             return el.title.toLowerCase().includes(props.input)
@@ -23,7 +33,7 @@ function List(props) {
                                 textAlign: 'center'
                             }}>
                             <img
-                                src={item.src}
+                                src={item.cover}
                                 className="media"
                                 alt={'coo'}/>
                         </Box>

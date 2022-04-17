@@ -1,42 +1,58 @@
 [
   {
     "title": "Wampirze Cesarstwo",
+    "author": "Jay Kristoff",
     "price": 49.99,
-    "src": "images/WampirzeCesarstwo.jpg"
+    "cover": "images/WampirzeCesarstwo.jpg",
+    "type":"Fantasy"
   },
   {
     "title": "Kroniki Jakuba Wędrowycza",
+    "author": "Andrzej Pilipiuk",
     "price": 29.99,
-    "src": "images/KronikaJakuba.jpg"
+    "cover": "images/KronikaJakuba.jpg",
+    "type":"Fantasy"
   },
   {
     "title": "Sługa Korony",
+    "author": "Brian mcClellan",
     "price": 39.99,
-    "src": "images/Sługa.jpg"
+    "cover": "images/Sługa.jpg",
+    "type":"Fantasy"
   },
   {
     "title": "Diablo",
+    "author": "Richard A. Knaak",
     "price": 49.99,
-    "src": "images/Diablo.jpg"
+    "cover": "images/Diablo.jpg",
+    "type":"Fantasy"
   },
   {
     "title": "Powiesić wybebeszyć i poćwiartować",
+    "author": "Jonathan J. Moore",
     "price": 34.00,
-    "src": "images/PowiesićWybebeszyćIPoćwiartować.jpg"
+    "cover": "images/PowiesićWybebeszyćIPoćwiartować.jpg",
+    "type":"Fantasy"
   },
   {
     "title": "Hobbit",
+    "author": "J.R.R Tolkien",
     "price": 49.99,
-    "src": "images/Hobbit.jpg"
+    "cover": "images/Hobbit.jpg",
+    "type":"Fantasy"
   },
   {
     "title": "Władca Pierścieni",
+    "author": "J.R.R Tolkien",
     "price": 79.99,
-    "src": "images/Władca.jpg"
+    "cover": "images/Władca.jpg",
+    "type":"Fantasy"
   },
   {
     "title": "Studnia wstąpienia",
+    "author": "Brandon Sanderson",
     "price": 29.99,
-    "src": "images/studnia.jpg"
+    "cover": "images/studnia.jpg",
+    "type":"Fantasy"
   }
 ]
