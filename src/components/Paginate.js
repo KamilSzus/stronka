@@ -1,6 +1,9 @@
 
 import ReactPaginate from "react-paginate";
 import React, {useEffect, useState} from "react";
+import {Box, Card, CardActionArea, CardContent, Grid, Typography} from "@material-ui/core";
+import Data from "./ListData.json";
+import GalleryImage from "./Gallery";
 
 function Paginate() {
 
@@ -10,15 +13,15 @@ function Paginate() {
 
     let itemsNumber = 18;
 
-    useEffect(()=> {
+    useEffect(() => {
         fetch(`http://localhost:8080/items/books/pageNumber1/NumberOfItems${itemsNumber}`
         )
             .then(res => res.json())
             .then((result) => {
-                setItems(result);
+                    setItems(result);
                 }
             )
-    },[])
+    }, [])
 
     const fetchComments = async (pageNumber) => {
         const res = await fetch(
@@ -34,39 +37,60 @@ function Paginate() {
     };
     return (
         <div>
-            <div className="container">
-                <div className="row m-2">
-                    {items.map((item) => {
-                        return (
-                            <div key={item.id} className="col-sm-6 col-md-4 v my-2">
-                                <div className="card shadow-sm w-100" style={{minHeight: 225}}>
-                                    <div className="card-body">
-                                        <h5 className="card-title text-center h2">Id :{item.title} </h5>
-                                        <h6 className="card-subtitle mb-2 text-muted text-center">
-                                            {item.author}
-                                        </h6>
-                                        <p className="card-text">{"d"}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-                <ReactPaginate
-                    pageCount={2}
-                    onPageChange={handlePageClick}
-                    containerClassName={'pagination justify-content-center'}
-                    pageClassName={'page-item'}
-                    pageLinkClassName={'page-link'}
-                    previousClassName={'page-item'}
-                    previousLinkClassName={'page-link'}
-                    nextLinkClassName={'page-link'}
-                    nextClassName={'page-item'}
-                    activeClassName={'active'}
-                />
-            </div>
+            <Grid container columns={{xs: 4, md: 12}}>
+                {items.map((object) => {
+                    return (
+                        <Card className="card" variant="outlined">
+                            <CardActionArea
+                                href={''}
+                                target="_blank">
+                                <Box
+                                    p={1}
+                                    style={{
+                                        height: 250,
+                                        textAlign: 'center'
+                                    }}>
+                                    <img
+                                        src={object.cover}
+                                        className="media"
+                                        alt={'coo'}/>
+                                </Box>
+                                <CardContent className="content">
+                                    <Typography
+                                        variant="body1"
+                                        color="textPrimary"
+                                        gutterBottom
+                                        style={{
+                                            overflow: 'hidden',
+                                            textOverflow: 'ellipsis',
+                                            display: '-webkit-box',
+                                            WebkitLineClamp: '2',
+                                            WebkitBoxOrient: 'vertical'
+                                        }}>
+                                        {object.title}
+                                    </Typography>
+                                    <Typography variant="subtitle2" color="textSecondary">
+                                        {object.price} zł
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                        </Card>
+                    );
+                })}
+            </Grid>
+            <ReactPaginate
+                pageCount={2}
+                onPageChange={handlePageClick}
+                containerClassName={'pagination justify-content-center'}
+                pageClassName={'page-item'}
+                pageLinkClassName={'page-link'}
+                previousClassName={'page-item'}
+                previousLinkClassName={'page-link'}
+                nextLinkClassName={'page-link'}
+                nextClassName={'page-item'}
+                activeClassName={'active'}
+            />
         </div>
     )
-
 }
 export default Paginate
