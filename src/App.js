@@ -7,20 +7,20 @@ import Items from "./components/Pages/Items";
 import Footer from "./components/Footer";
 
 function App() {
-  return (
-      <>
-          <Router>
-              <Navbar/>
-              <Routes>
-                  <Route exact path="/" element={<Home/>}/>
-                  <Route path='/Items' element={<Items/>}/>
-                  <Route path='/Account' element={<SignUp/>}/>
-                  <Route path='/About' />
-              </Routes>
-              <Footer/>
-          </Router>
-      </>
-  );
+    return (
+        <>
+            <Router>
+                <Navbar/>
+                <Routes>
+                    <Route exact path="/" element={<Home/>}/>
+                    <Route path='/Items' element={<Items/>}/>
+                    <Route path='/Account' element={<SignUp/>}/>
+                    <Route path='/About'/>
+                </Routes>
+                <Footer/>
+            </Router>
+        </>
+    );
 }
 
 export default App;

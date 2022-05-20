@@ -20,7 +20,7 @@ function List(props) {
         }
     })
     return(
-        <div className="test">
+        <div className="searchList">
             {filteredData.map((item) => (
                 <Card className="card" variant="outlined">
                     <CardActionArea

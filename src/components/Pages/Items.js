@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import 'react-slideshow-image/dist/styles.css'
-import GalleryImage from "../Gallery";
 import {Grid, TextField} from "@material-ui/core";
 import List from "../Search";
 import Data from "../ListData.json"

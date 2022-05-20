@@ -30,7 +30,7 @@ const Footer = () => {
         },
     ];
     return (
-        <div className="content-container">
+        <div className="temp">
             <SimpleReactFooter
                 description={description}
                 title={title}

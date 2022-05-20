@@ -1,5 +1,10 @@
-.test{
+.searchList{
     display: flex;
-    float: left;
+    justify-content: space-around;
+    flex-wrap: wrap;
     margin-bottom: 55px;
+}
+.searchList::after{
+    flex:auto;
+    content: "";
 }

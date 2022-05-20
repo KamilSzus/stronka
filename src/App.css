@@ -38,3 +38,13 @@
     color: #fff;
     font-size: 100px;
 }
+
+#root{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+body{
+    height: 100vh;
+}
