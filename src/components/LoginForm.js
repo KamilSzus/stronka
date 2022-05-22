@@ -6,7 +6,6 @@ function LoginForm() {
             <>
                 <div className="loginBox">
                     <h1>Sign Up</h1>
-
                     <form>
                         <TextField
                             name="username"
@@ -15,16 +14,18 @@ function LoginForm() {
                         <br/>
                         <TextField
                             name="password"
+                            type="password"
                             helperText="password"
                         />
                         <br/>
                         <div className="pwStrRow">
                         </div>
                         <br/>
+                        <input type="submit" />
                     </form>
                     <p>
                         Create account? <br/>
-                        <a href="/">Register</a>
+                        <a href="/Registration">Register</a>
                     </p>
                 </div>
             </>
