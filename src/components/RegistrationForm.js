@@ -6,40 +6,6 @@ import Button from '@material-ui/core/Button';
 function RegistrationForm() {
     const {handleSubmit, control} = useForm();
 
-    //let handleSubmit = async (e) => {
-    //    e.preventDefault();
-    //    try {
-    //        let res = await fetch("https://httpbin.org/post", {
-    //            method: "POST",
-    //            body: JSON.stringify({
-    //                name: name,
-    //                email: email,
-    //                mobileNumber: mobileNumber,
-    //            }),
-    //        });
-    //        let resJson = await res.json();
-    //        if (res.status === 200) {
-    //            setName("");
-    //            setEmail("");
-    //            setMessage("User created successfully");
-    //        } else {
-    //            setMessage("Some error occured");
-    //        }
-    //    } catch (err) {
-    //        console.log(err);
-    //    }
-    //const res = await fetch('http://localhost:8080/registration', {
-    //    headers: {'Content-Type': 'application/json'},
-    //    method: 'POST',
-    //    body: JSON.stringify(data)
-    //});
-    //await res.json();
-    //if (res.status === 200) {
-    //    console.log(res);
-    //} else {
-    //    console.log(res);
-    //}
-    //};
 
     const onSubmit = async data => {
         debugger
