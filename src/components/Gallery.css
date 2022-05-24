@@ -15,23 +15,27 @@
 .image-grid-card:hover .overflow-back {
     opacity: 100%;
 }
+
 .card-body {
     flex: 1 1 auto;
     padding: 1rem 1rem;
     background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
 }
 
-.content{
+.content {
     flex: 1 0 auto;
 }
-.details{
+
+.details {
     flex-direction: column;
 }
-.item{
+
+.item {
     margin: 0 auto;
     padding: 7px;
 }
-.media{
+
+.media {
     width: auto;
     height: auto;
     max-width: 100%;
@@ -39,8 +43,9 @@
     vertical-align: middle;
     display: inline-block;
 }
-.card{
-    display:flex;
+
+.card {
+    display: flex;
     width: 230px;
     height: 400px;
 }

@@ -11,58 +11,59 @@ function LoginForm() {
     }
 
     return (
-            <>
-                <div className="loginBox">
-                    <h1>Sign Up</h1>
+        <>
+            <div className="loginBox">
+                <h1>Sign Up</h1>
+                <br/>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <Controller
+                        name="email"
+                        control={control}
+                        defaultValue=""
+                        render={({field: {onChange, value}, fieldState: {error}}) => (
+                            <TextField
+                                label="email"
+                                variant="filled"
+                                value={value}
+                                onChange={onChange}
+                                error={!!error}
+                                helperText={error ? error.message : null}
+                            />
+                        )}
+                        rules={{required: 'email required'}}
+                    />
                     <br/>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <Controller
-                            name="email"
-                            control={control}
-                            defaultValue=""
-                            render={({field: {onChange, value}, fieldState: {error}}) => (
-                                <TextField
-                                    label="email"
-                                    variant="filled"
-                                    value={value}
-                                    onChange={onChange}
-                                    error={!!error}
-                                    helperText={error ? error.message : null}
-                                />
-                            )}
-                            rules={{required: 'email required'}}
-                        />
-                        <br/>
-                        <Controller
-                            name="password"
-                            control={control}
-                            defaultValue=""
-                            render={({field: {onChange, value}, fieldState: {error}}) => (
-                                <TextField
-                                    label="password"
-                                    variant="filled"
-                                    value={value}
-                                    onChange={onChange}
-                                    error={!!error}
-                                    helperText={error ? error.message : null}
-                                    type="password"
-                                />
-                            )}
-                            rules={{required: 'Password required'}}
-                        />
-                        <br/>
-                        <br/>
-                        <Button type="submit" variant="contained" color="primary">
-                            Login
-                        </Button>
-                    </form>
+                    <Controller
+                        name="password"
+                        control={control}
+                        defaultValue=""
+                        render={({field: {onChange, value}, fieldState: {error}}) => (
+                            <TextField
+                                label="password"
+                                variant="filled"
+                                value={value}
+                                onChange={onChange}
+                                error={!!error}
+                                helperText={error ? error.message : null}
+                                type="password"
+                            />
+                        )}
+                        rules={{required: 'Password required'}}
+                    />
                     <br/>
-                    <p>
-                        Create account? <br/>
-                        <a href="/Registration">Register</a>
-                    </p>
-                </div>
-            </>
-        )
+                    <br/>
+                    <Button type="submit" variant="contained" color="primary">
+                        Login
+                    </Button>
+                </form>
+                <br/>
+                <p>
+                    Create account? <br/>
+                    <a href="/Registration">Register</a>
+                </p>
+            </div>
+        </>
+    )
 }
+
 export default LoginForm;

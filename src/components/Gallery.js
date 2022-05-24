@@ -4,16 +4,16 @@ import {Box, Card, CardActionArea, CardContent, Typography} from "@material-ui/c
 
 function GalleryImage(props) {
 
-    const[books,setBooks]=useState([])
+    const [books, setBooks] = useState([])
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch("http://localhost:8080/items/getAllBooks")
-            .then(res=>res.json())
-            .then((result)=>{
+            .then(res => res.json())
+            .then((result) => {
                     setBooks(result);
                 }
             )
-    },[])
+    }, [])
 
     return (books.map((object) => (
             <Card className="card" variant="outlined">
@@ -54,4 +54,5 @@ function GalleryImage(props) {
         )
     ))
 }
+
 export default GalleryImage;

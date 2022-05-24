@@ -10,7 +10,7 @@ function RegistrationForm() {
     const onSubmit = async data => {
         debugger
         try {
-            await fetch(`http://localhost:8080/registration`,{
+            await fetch(`http://localhost:8080/registration`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -39,12 +39,12 @@
     font-size: 100px;
 }
 
-#root{
+#root {
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-body{
+body {
     height: 100vh;
 }

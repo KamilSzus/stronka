@@ -1,4 +1,3 @@
-
 import ReactPaginate from "react-paginate";
 import React, {useEffect, useState} from "react";
 import {Box, Card, CardActionArea, CardContent, Grid, Typography} from "@material-ui/core";
@@ -93,4 +92,5 @@ function Paginate() {
         </div>
     )
 }
+
 export default Paginate

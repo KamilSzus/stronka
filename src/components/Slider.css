@@ -1,6 +1,7 @@
 h1 {
     text-align: center;
 }
+
 .sliderContainer {
     display: flex;
     flex-flow: column;

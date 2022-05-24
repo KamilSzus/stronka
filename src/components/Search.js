@@ -9,7 +9,7 @@ function List(props) {
         fetch("http://localhost:8080/items/getAllBooks")
             .then(res=>res.json())
             .then((result)=>{
-                    setBooks(result);
+                setBooks(result);
                 }
             )
     },[])
