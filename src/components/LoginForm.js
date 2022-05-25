@@ -3,10 +3,15 @@ import "./LoginForm.css"
 import {Controller, useForm} from "react-hook-form";
 import Button from "@material-ui/core/Button";
 import {useState} from "react";
+import { useNavigate } from 'react-router-dom';
 
+//export dla innych metod
+export  let token = {};
 function LoginForm() {
+    const navigate = useNavigate();
     const {handleSubmit, control} = useForm();
     const [errorMessages, setErrorMessages] = useState({});
+
 
     const onSubmit = async data => {
         try {
@@ -20,7 +25,13 @@ function LoginForm() {
                 .then(response => {
                     return response.json()
                 })
-                .then(response => console.log(response));
+                .then(response => token = response);
+            if(token.role==="STANDARD_USER"){
+                console.log("STANDARD_USER")
+            }else if(token.role==="ADMIN"){
+                console.log("ADMIN")
+                navigate("/AdminPanel")
+            }
         } catch (err) {
             console.log(err)
         }

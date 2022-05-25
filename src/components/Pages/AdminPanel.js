@@ -15,6 +15,13 @@ function AdminPanel() {
             )
     }, [])
 
+    function deleteRow (email) {
+        console.log(email)
+        fetch(`http://localhost:8080/users/deleteUser/${email}`,
+            {method: 'DELETE'})
+            .then(() => this.setState({status: 'Delete successful'}));
+        setUsers(users.filter(item => item.email !== email));
+    }
     return (
         <>
             <Table striped bordered hover variant="dark">
@@ -36,7 +43,7 @@ function AdminPanel() {
                             <td>{object.name}</td>
                             <td>{object.role}</td>
                             <td>
-                                <Button>
+                                <Button onClick={() => deleteRow(object.email)}>
                                     Delete
                                 </Button>
                             </td>
@@ -44,7 +51,6 @@ function AdminPanel() {
                         </tbody>
                     )
                 })}
-
             </Table>
         </>
 

@@ -8,6 +8,8 @@ function Home() {
             <Cards/>
             <Slider/>
         </>
+
     )
 }
 export default Home;
+
