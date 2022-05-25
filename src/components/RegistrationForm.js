@@ -8,7 +8,6 @@ function RegistrationForm() {
 
 
     const onSubmit = async data => {
-        debugger
         try {
             await fetch(`http://localhost:8080/registration`, {
                 method: 'POST',
@@ -26,7 +25,7 @@ function RegistrationForm() {
     return (
         <>
             <div className="loginBox">
-                <h1>Create account</h1>
+                <h1>Stwórz konto</h1>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Controller
@@ -101,14 +100,14 @@ function RegistrationForm() {
                     <br/>
                     <br/>
                     <Button type="submit" variant="contained" color="primary">
-                        Create account
+                        Stwórz konto
                     </Button>
                     <br/>
                     <br/>
                 </form>
 
                 <p>
-                    Have a account? <br/>
+                    Posiadasz konto? <br/>
                     <a href="/Account">Login</a>
                 </p>
             </div>

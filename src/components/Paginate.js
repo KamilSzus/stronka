@@ -1,8 +1,7 @@
 import ReactPaginate from "react-paginate";
 import React, {useEffect, useState} from "react";
-import {Box, Card, CardActionArea, CardContent, Grid, Typography} from "@material-ui/core";
-import Data from "./ListData.json";
-import GalleryImage from "./Gallery";
+import {Box, ButtonBase, Card, CardActionArea, CardContent, Grid, Typography} from "@material-ui/core";
+import "./Gallery.css"
 
 function Paginate() {
 
@@ -40,6 +39,9 @@ function Paginate() {
                 {items.map((object) => {
                     return (
                         <Card className="card" variant="outlined">
+                            <ButtonBase
+                                onClick={() => {console.log(object.title)}}
+                            >
                             <CardActionArea
                                 href={''}
                                 target="_blank">
@@ -73,8 +75,9 @@ function Paginate() {
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
+                            </ButtonBase>
                         </Card>
-                    );
+                );
                 })}
             </Grid>
             <ReactPaginate

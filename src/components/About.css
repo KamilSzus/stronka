@@ -1,0 +1,15 @@
+.centerContainer{
+    width: 100vh;
+    height: 60vh;
+    background-image: url("../../public/images/biblioteka-pulki-ksiazki.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 50px 0px 0px 0px;
+
+}
+
+.textContainer{
+    padding: 50px !important;
+}
+

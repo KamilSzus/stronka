@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import "./Search.css"
+import "../Search.css"
 import {Box, Card, CardActionArea, CardContent, Typography} from "@material-ui/core";
 
 function List(props) {

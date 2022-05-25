@@ -2,18 +2,34 @@ import {TextField} from "@material-ui/core";
 import "./LoginForm.css"
 import {Controller, useForm} from "react-hook-form";
 import Button from "@material-ui/core/Button";
+import {useState} from "react";
 
 function LoginForm() {
     const {handleSubmit, control} = useForm();
+    const [errorMessages, setErrorMessages] = useState({});
 
-    function onSubmit() {
-
+    const onSubmit = async data => {
+        try {
+            await fetch(`http://localhost:8080/login/user`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => {
+                    return response.json()
+                })
+                .then(response => console.log(response));
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     return (
         <>
             <div className="loginBox">
-                <h1>Sign Up</h1>
+                <h1>Zaloguj się</h1>
                 <br/>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Controller
@@ -58,8 +74,8 @@ function LoginForm() {
                 </form>
                 <br/>
                 <p>
-                    Create account? <br/>
-                    <a href="/Registration">Register</a>
+                    Stwórz konto? <br/>
+                    <a href="/Registration">Rejestracja</a>
                 </p>
             </div>
         </>

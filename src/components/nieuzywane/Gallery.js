@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import "./Gallery.css"
+import "../Gallery.css"
 import {Box, Card, CardActionArea, CardContent, Typography} from "@material-ui/core";
 
 function GalleryImage(props) {

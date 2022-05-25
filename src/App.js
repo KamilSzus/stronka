@@ -6,6 +6,8 @@ import SignUp from "./components/Pages/SignUp";
 import Items from "./components/Pages/Items";
 import Footer from "./components/Footer";
 import Registration from "./components/Pages/Registration";
+import Cart from "./components/Pages/Cart";
+import About from "./components/Pages/About";
 
 function App() {
     return (
@@ -16,8 +18,9 @@ function App() {
                     <Route exact path="/" element={<Home/>}/>
                     <Route path='/Items' element={<Items/>}/>
                     <Route path='/Account' element={<SignUp/>}/>
-                    <Route path='/About'/>
+                    <Route path='/About' element={<About/>}/>
                     <Route path='/Registration' element={<Registration/>}/>
+                    <Route path='/Cart' element={<Cart/>}/>
                 </Routes>
                 <Footer/>
             </Router>

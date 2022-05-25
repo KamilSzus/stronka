@@ -3,9 +3,9 @@ import React from "react";
 import "./Slider.css";
 
 const images = [
-    {url: "images/img-1.jpg"},
-    {url: "images/img-3.jpg"},
-    {url: "images/img-2.jpg"},
+    {url: "images/KrewElfów.jpg"},
+    {url: "images/MalowanyCzłowiek.jpg"},
+    {url: "images/Ogrody.jpg"},
 ];
 
 function onClick() {
@@ -17,12 +17,12 @@ const Slider = () => {
     return (
         <div>
             <div className='Slider'>
-                <h1>Epic Adventure</h1>
+                <h1>Polecane produkcje</h1>
                 <div className='sliderContainer'>
                     <div className='sliderWrapper'>
                         <SimpleImageSlider
-                            width={896}
-                            height={504}
+                            width={600}
+                            height={400}
                             images={images}
                             showBullets={true}
                             showNavs={true}

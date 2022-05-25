@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import 'react-slideshow-image/dist/styles.css'
 import {Grid, TextField} from "@material-ui/core";
-import List from "../Search";
+import List from "../nieuzywane/Search";
 import Data from "../ListData.json"
 import Paginate from "../Paginate";
     function Items() {
@@ -15,7 +15,7 @@ import Paginate from "../Paginate";
         return (
             <>
                 <div>
-                        <h1>React Search</h1>
+                        <h1>Sprawdz czy książka istnieje</h1>
                         <div className="search">
                             <TextField
                                 id="outlined-basic"
