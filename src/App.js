@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Registration from "./components/Pages/Registration";
 import Cart from "./components/Pages/Cart";
 import About from "./components/Pages/About";
+import AdminPanel from "./components/Pages/AdminPanel";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                     <Route path='/About' element={<About/>}/>
                     <Route path='/Registration' element={<Registration/>}/>
                     <Route path='/Cart' element={<Cart/>}/>
+                    <Route path='/AdminPanel' element={<AdminPanel/>}/>
                 </Routes>
                 <Footer/>
             </Router>

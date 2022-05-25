@@ -76,8 +76,7 @@ function Paginate() {
                                 </CardContent>
                             </CardActionArea>
                             </ButtonBase>
-                        </Card>
-                );
+                        </Card>);
                 })}
             </Grid>
             <ReactPaginate
