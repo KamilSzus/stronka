@@ -3,8 +3,8 @@ import React from "react";
 import "./Footer.css";
 
 const Footer = () => {
-    const description = "According to wikipedia, the cat (Felis catus) is a domestic species of small carnivorous mammal. It is the only domesticated species in the family Felidae and is often referred to as the domestic cat to distinguish it from the wild members of the family. A cat can either be a house cat, a farm cat or a feral cat; the latter ranges freely and avoids human contact.";
-    const title = "Cats";
+    const description = "Dragons were ancient, intelligent, powerful creatures, as feared as they were admired in Middle-earth. Their exact origin is debated, though it was clearly stated that they were created by Morgoth in some sense, millennia before the events of The Hobbit and The Lord of the Rings.";
+    const title = "Dragons";
     const columns = [
         {
             title: "Resources",

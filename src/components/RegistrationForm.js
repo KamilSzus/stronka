@@ -2,8 +2,12 @@ import {TextField} from "@material-ui/core";
 import {useForm, Controller} from "react-hook-form";
 import "./LoginForm.css"
 import Button from '@material-ui/core/Button';
+import { useNavigate } from 'react-router-dom';
+export  let token = {};
+
 
 function RegistrationForm() {
+    const navigate = useNavigate();
     const {handleSubmit, control} = useForm();
 
 
@@ -16,7 +20,12 @@ function RegistrationForm() {
                 },
                 body: JSON.stringify(data)
             })
-                .then(response => console.log(response));
+                .then(response => {
+                    token = response
+                })
+            if(token.status===200) {
+                navigate("/Account")
+            }
         } catch (err) {
             console.log(err);
         }
