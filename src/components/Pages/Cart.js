@@ -2,19 +2,29 @@ import '../../App.css'
 import React, {useEffect, useState} from "react";
 import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
+import {useLocalStorage} from "../useLocalStorage";
 
 function Cart() {
     const [books, setbooks] = useState([]);
+    let price = 0;
 
-    useEffect(() => {
-        fetch(`http://localhost:8080/items/books/pageNumber1/NumberOfItems${12}`
-        )
-            .then(res => res.json())
-            .then((result) => {
-                    setbooks(result);
-                }
+   // window.cartArray.forEach((element) => {
+        useEffect(() => {
+            fetch(`http://localhost:8080/items/books/${window.cartArray[0]}`
             )
-    }, [])
+                .then(res => res.json())
+                .then((result) => {
+                        setbooks(result);
+                    }
+                )
+        }, [])
+
+    function calPrice(){
+        books.map((object) => {
+          price += object.price
+        });
+        return Math.round(price * 100) / 100;
+    }
 
     function deleteRow (email) {
         console.log(email)
@@ -59,10 +69,10 @@ return(
             <Table striped bordered hover variant="dark">
                         <tbody>
                         <tr>
-                            <td>object.price</td>
+                            <td>{calPrice()}</td>
                             <td>
                                 <Button onClick={() => console.log("kupione")}>
-                                    BUY
+                                    {window.cartArray[2]}
                                 </Button>
                             </td>
                         </tr>

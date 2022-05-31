@@ -2,9 +2,10 @@ import ReactPaginate from "react-paginate";
 import React, {useEffect, useState} from "react";
 import {Box, ButtonBase, Card, CardActionArea, CardContent, Grid, Typography} from "@material-ui/core";
 import "./Gallery.css"
+import {useLocalStorage} from "./useLocalStorage";
 
 function Paginate() {
-
+    const [bookInCart, setBookInCart] = useLocalStorage("bookCart", "");
     const [items, setItems] = useState([]);
 
     const [pageCount, setPageCount] = useState(0);
@@ -40,7 +41,9 @@ function Paginate() {
                     return (
                         <Card className="card" variant="outlined">
                             <ButtonBase
-                                onClick={() => {console.log(object.title)}}
+                                onClick={() => {
+                                    window.cartArray.push(object.title)
+                                    setBookInCart(object.title)}}
                             >
                             <CardActionArea
                                 href={''}
