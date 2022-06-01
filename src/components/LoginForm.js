@@ -28,8 +28,10 @@ function LoginForm() {
                 .then(response => token = response);
             if(token.role==="STANDARD_USER"){
                 console.log("STANDARD_USER")
+                window.loginState = "STANDARD_USER"
             }else if(token.role==="ADMIN"){
                 console.log("ADMIN")
+                window.loginState = "ADMIN"
                 navigate("/AdminPanel")
             }
         } catch (err) {

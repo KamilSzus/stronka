@@ -4,6 +4,7 @@ import App from './App';
 
 window.cartArray = []
 window.cart = []
+window.loginState = ""
 
 ReactDOM.render(
     <React.StrictMode>

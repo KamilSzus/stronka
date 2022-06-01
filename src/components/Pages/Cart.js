@@ -5,6 +5,24 @@ import Table from "react-bootstrap/Table";
 
 let price = 0;
 
+function calPrice() {
+    window.cart.map((object) => {
+        price += object.price
+    });
+    return Math.round(price * 100) / 100;
+}
+
+function buyBooks() {
+    window.cartArray = []
+    window.location.reload(false);
+}
+
+
+function deleteRow(book) {
+    window.cartArray = window.cartArray.filter(item => item !== book);
+    this.forceUpdate();
+}
+
 class Cart extends React.Component {
 
 
@@ -12,7 +30,6 @@ class Cart extends React.Component {
         return new Promise(resolve => {
             let cartDownload = []
             window.cartArray.forEach((element) => {
-                console.log(element)
                 fetch(`http://localhost:8080/items/books/${element}`)
                     .then(res => res.json())
                     .then((result) => {
@@ -20,6 +37,7 @@ class Cart extends React.Component {
                         cartDownload.push(result[0])
                     })
             })
+            this.setState({ state: this.state });
             resolve(cartDownload)
         })
     }
@@ -33,22 +51,6 @@ class Cart extends React.Component {
 
 
     render() {
-
-        function calPrice() {
-            window.cart.map((object) => {
-                price += object.price
-            });
-            return Math.round(price * 100) / 100;
-        }
-
-        function buyBooks() {
-            window.cartArray = []
-        }
-
-        function deleteRow(book) {
-            window.cartArray = window.cartArray.filter(item => item !== book);
-        }
-debugger
         return (
             <>
                 <>
@@ -63,7 +65,6 @@ debugger
                         </tr>
                         </thead>
                         {window.cart.map((object) => {
-                            debugger
                             return (
                                 <tbody>
                                 <tr>
