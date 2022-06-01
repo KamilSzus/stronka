@@ -2,6 +2,7 @@ import '../../App.css'
 import React, {useEffect, useState} from "react";
 import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
+import {wait} from "@testing-library/user-event/dist/utils";
 
 let price = 0;
 
@@ -25,7 +26,6 @@ function deleteRow(book) {
 
 class Cart extends React.Component {
 
-
     getBooksFromDataBase = () => {
         return new Promise(resolve => {
             let cartDownload = []
@@ -33,24 +33,45 @@ class Cart extends React.Component {
                 fetch(`http://localhost:8080/items/books/${element}`)
                     .then(res => res.json())
                     .then((result) => {
-                        debugger
                         cartDownload.push(result[0])
                     })
             })
-            this.setState({ state: this.state });
             resolve(cartDownload)
         })
     }
 
-
     constructor(props) {
         super(props);
         price = 0;
+        this.state = {
+            data: null
+        };
         this.getBooksFromDataBase().then(result => window.cart = result)
     }
 
+    componentDidMount() {
+        this.loadData();
+    }
+
+    loadData() {
+        let cartDownload = []
+        window.cartArray.forEach((element) => {
+            fetch(`http://localhost:8080/items/books/${element}`)
+                .then(res => res.json())
+                .then((result) => {
+                    cartDownload.push(result[0])
+                    price = 0;
+                    this.setState({
+                        data: cartDownload
+                    });
+                })
+        })
+    }
 
     render() {
+        if (!this.state.data) {
+            return <div/>
+        }
         return (
             <>
                 <>
@@ -100,8 +121,6 @@ class Cart extends React.Component {
             </>
         )
     }
-
-
 }
 
 export default Cart;
