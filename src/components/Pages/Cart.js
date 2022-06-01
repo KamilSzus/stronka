@@ -2,84 +2,105 @@ import '../../App.css'
 import React, {useEffect, useState} from "react";
 import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
-import {useLocalStorage} from "../useLocalStorage";
 
-function Cart() {
-    const [books, setbooks] = useState([]);
-    let price = 0;
+let price = 0;
 
-   // window.cartArray.forEach((element) => {
-        useEffect(() => {
-            fetch(`http://localhost:8080/items/books/${window.cartArray[0]}`
-            )
-                .then(res => res.json())
-                .then((result) => {
-                        setbooks(result);
-                    }
-                )
-        }, [])
+class Cart extends React.Component {
 
-    function calPrice(){
-        books.map((object) => {
-          price += object.price
-        });
-        return Math.round(price * 100) / 100;
+
+    getBooksFromDataBase = () => {
+        return new Promise(resolve => {
+            let cartDownload = []
+            window.cartArray.forEach((element) => {
+                console.log(element)
+                fetch(`http://localhost:8080/items/books/${element}`)
+                    .then(res => res.json())
+                    .then((result) => {
+                        debugger
+                        cartDownload.push(result[0])
+                    })
+            })
+            resolve(cartDownload)
+        })
     }
 
-    function deleteRow (email) {
-        console.log(email)
-        fetch(`http://localhost:8080/books/deleteUser/${email}`,
-            {method: 'DELETE'})
-            .then(() => this.setState({status: 'Delete successful'}));
-        setbooks(books.filter(item => item.email !== email));
+
+    constructor(props) {
+        super(props);
+        price = 0;
+        this.getBooksFromDataBase().then(result => window.cart = result)
     }
-return(
-    <>
-        <>
-            <Table striped bordered hover variant="dark">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Icon</th>
-                    <th>Title</th>
-                    <th>UserType</th>
-                    <th>Price</th>
-                </tr>
-                </thead>
-                {books.map((object) => {
-                    return (
+
+
+    render() {
+
+        function calPrice() {
+            window.cart.map((object) => {
+                price += object.price
+            });
+            return Math.round(price * 100) / 100;
+        }
+
+        function buyBooks() {
+            window.cartArray = []
+        }
+
+        function deleteRow(book) {
+            window.cartArray = window.cartArray.filter(item => item !== book);
+        }
+debugger
+        return (
+            <>
+                <>
+                    <Table striped bordered hover variant="dark">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Icon</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        {window.cart.map((object) => {
+                            debugger
+                            return (
+                                <tbody>
+                                <tr>
+                                    <td>{object.id}</td>
+                                    <td>
+                                        <img src={object.cover} width="100" height="100"/>
+                                    </td>
+                                    <td>{object.title}</td>
+                                    <td>{object.price}</td>
+                                    <td>
+                                        <Button onClick={() => deleteRow(object.title)}>
+                                            Delete
+                                        </Button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            )
+                        })}
+                    </Table>
+                    <Table striped bordered hover variant="dark">
                         <tbody>
                         <tr>
-                            <td>{object.id}</td>
+                            <td>Cena całkowita: {calPrice()} zł</td>
                             <td>
-                                <img src={object.cover} width="100" height="100"/>
-                            </td>
-                            <td>{object.title}</td>
-                            <td>{object.price}</td>
-                            <td>
-                                <Button onClick={() => deleteRow(object.email)}>
-                                    Delete
+                                <Button onClick={() => buyBooks()}>
+                                    KUP
                                 </Button>
                             </td>
                         </tr>
                         </tbody>
-                    )
-                })}
-            </Table>
-            <Table striped bordered hover variant="dark">
-                        <tbody>
-                        <tr>
-                            <td>{calPrice()}</td>
-                            <td>
-                                <Button onClick={() => console.log("kupione")}>
-                                    {window.cartArray[2]}
-                                </Button>
-                            </td>
-                        </tr>
-                        </tbody>
-            </Table>
-        </>
-    </>
-    )
+                    </Table>
+                </>
+            </>
+        )
+    }
+
+
 }
+
 export default Cart;
