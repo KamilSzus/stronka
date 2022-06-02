@@ -1,6 +1,7 @@
 import Table from 'react-bootstrap/Table'
 import {Button} from "react-bootstrap";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
+import {Navigate} from "react-router-dom";
 
 function AdminPanel() {
     const [users, setUsers] = useState([]);
@@ -15,15 +16,23 @@ function AdminPanel() {
             )
     }, [])
 
-    function deleteRow (email) {
+    function checkStatus() {
+        if (window.loginState !== "ADMIN") {
+            return <Navigate to="/"/>
+        }
+    }
+
+    function deleteRow(email) {
         console.log(email)
         fetch(`http://localhost:8080/users/deleteUser/${email}`,
             {method: 'DELETE'})
             .then(() => this.setState({status: 'Delete successful'}));
         setUsers(users.filter(item => item.email !== email));
     }
+
     return (
         <>
+            {checkStatus()}
             <Table striped bordered hover variant="dark">
                 <thead>
                 <tr>
@@ -55,7 +64,6 @@ function AdminPanel() {
         </>
 
     )
-
 }
 
 export default AdminPanel
